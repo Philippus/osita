@@ -8,14 +8,13 @@ object Osita {
   private val qwertyKeyboardGrid: Array[Array[Char]] = {
     """qwertyuiop
       |asdfghjkl
-      |zxcvbnm"""
-      .stripMargin
+      |zxcvbnm""".stripMargin
       .split('\n')
       .map(_.toCharArray)
   }
 
   private def simpleSubstitutionCost[A](a: A, b: A): Double =
-    if (a == b) 0.0D else 1.0D
+    if (a == b) 0.0d else 1.0d
 
   private def findPos(c: Char): (Double, Double) = {
     val t = qwertyKeyboardGrid.map(row => row.indexOf(c))
@@ -24,9 +23,9 @@ object Osita {
     // compensate for the difference between rows on a keyboard
     // idea taken from https://codegolf.stackexchange.com/questions/233618/distances-between-keys-on-a-qwerty-keyboard
     val factor = row match {
-      case 0 => 0.0D
-      case 1 => 0.25D
-      case 2 => 0.75D
+      case 0 => 0.0d
+      case 1 => 0.25d
+      case 2 => 0.75d
     }
     (column + factor, row)
   }
@@ -45,9 +44,9 @@ object Osita {
     osaWithSubstitutionCost(a, b)(simpleSubstitutionCost)
 
   def osaWithSubstitutionCost[A](a: Seq[A], b: Seq[A])(substitutionCost: (A, A) => Double): Double = {
-    val deletionCost = 1.0D
-    val insertionCost = 1.0D
-    val transpositionCost = 1.0D
+    val deletionCost = 1.0d
+    val insertionCost = 1.0d
+    val transpositionCost = 1.0d
 
     val d = Array.ofDim[Double](a.size + 1, b.size + 1)
 
@@ -59,12 +58,13 @@ object Osita {
       i <- 1 to a.size
       j <- 1 to b.size
     } {
-      d(i)(j) =
+      d(i)(j) = min(
         min(
-          min(
-            d(i - 1)(j) + deletionCost, // deletion
-            d(i)(j - 1) + insertionCost), // insertion
-          d(i - 1)(j - 1) + substitutionCost(a(i - 1), b(j - 1))) // substitution
+          d(i - 1)(j) + deletionCost, // deletion
+          d(i)(j - 1) + insertionCost
+        ), // insertion
+        d(i - 1)(j - 1) + substitutionCost(a(i - 1), b(j - 1))
+      ) // substitution
       if (i > 1 && j > 1 && a(i - 1) == b(j - 2) && a(i - 2) == b(j - 1))
         d(i)(j) = min(d(i)(j), d(i - 2)(j - 2) + transpositionCost) // transposition
     }
