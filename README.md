@@ -8,7 +8,7 @@
 
 Osita is an implementation of the [Optimal String Alignment distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance#Optimal_string_alignment_distance)
 algorithm. It implements the standard version of the algorithm and an extension of it where the substitution cost has
-been replaced by a function which calculates the keyboard distance between characters using the Euclidian distance
+been replaced by a function which calculates the keyboard distance between characters using the Euclidean distance
 between keys on a QWERTY-keyboard.
 You can also supply your own substitution cost function.
 
@@ -32,7 +32,7 @@ osaWithSubstitutionCost("abc", "agc")(weightedKeyboardSubstitutionCost) // val r
 
 ## Resources
 - [Optimal String Alignment distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance#Optimal_string_alignment_distance)
-- [Euclidian Distance](https://en.wikipedia.org/wiki/Euclidean_distance)
+- [Euclidean Distance](https://en.wikipedia.org/wiki/Euclidean_distance)
 - Distances between keys on a QWERTY keyboard on Code Golf - https://codegolf.stackexchange.com/questions/233618/distances-between-keys-on-a-qwerty-keyboard
 - Keyboard distance in Perl - https://metacpan.org/release/KRBURTON/String-KeyboardDistance-1.01/source/README
 
