@@ -17,7 +17,7 @@ crossScalaVersions := List("2.12.17", "2.13.10")
 scalaVersion := crossScalaVersions.value.last
 
 ThisBuild / versionScheme := Some("semver-spec")
-ThisBuild / versionPolicyIntention := Compatibility.BinaryCompatible
+ThisBuild / versionPolicyIntention := Compatibility.None
 
 Compile / packageBin / packageOptions += Package.ManifestAttributes(
   "Automatic-Module-Name" -> "nl.gn0s1s.osita"
