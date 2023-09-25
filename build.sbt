@@ -1,7 +1,7 @@
-name := "osita"
+name         := "osita"
 organization := "nl.gn0s1s"
-startYear := Some(2022)
-homepage := Some(url("https://github.com/philippus/osita"))
+startYear    := Some(2022)
+homepage     := Some(url("https://github.com/philippus/osita"))
 licenses += ("MPL-2.0", url("https://www.mozilla.org/MPL/2.0/"))
 
 developers := List(
@@ -14,9 +14,9 @@ developers := List(
 )
 
 crossScalaVersions := List("2.12.18", "2.13.12")
-scalaVersion := crossScalaVersions.value.last
+scalaVersion       := crossScalaVersions.value.last
 
-ThisBuild / versionScheme := Some("semver-spec")
+ThisBuild / versionScheme          := Some("semver-spec")
 ThisBuild / versionPolicyIntention := Compatibility.None
 
 Compile / packageBin / packageOptions += Package.ManifestAttributes(
@@ -26,6 +26,6 @@ Compile / packageBin / packageOptions += Package.ManifestAttributes(
 scalacOptions += "-deprecation"
 
 libraryDependencies ++= Seq(
-  "org.scalameta" %% "munit" % "0.7.29" % Test,
+  "org.scalameta" %% "munit"            % "0.7.29" % Test,
   "org.scalameta" %% "munit-scalacheck" % "0.7.29" % Test
 )
