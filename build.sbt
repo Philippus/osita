@@ -13,7 +13,7 @@ developers := List(
   )
 )
 
-crossScalaVersions := List("2.12.18", "2.13.12")
+crossScalaVersions := List("2.12.19", "2.13.12")
 scalaVersion       := crossScalaVersions.value.last
 
 ThisBuild / versionScheme          := Some("semver-spec")
