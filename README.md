@@ -13,7 +13,7 @@ between keys on a QWERTY or AZERTY-keyboard.
 You can also supply your own substitution cost function.
 
 ## Installation
-Osita is published for Scala 2.13. To start using it add the following to your `build.sbt`:
+Osita is published for Scala 2.12 and 2.13. To start using it add the following to your `build.sbt`:
 
 ```
 libraryDependencies += "nl.gn0s1s" %% "osita" % "0.0.3"
