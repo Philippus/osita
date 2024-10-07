@@ -9,7 +9,7 @@
 Osita is an implementation of the [Optimal String Alignment distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance#Optimal_string_alignment_distance)
 algorithm. It implements the standard version of the algorithm and an extension of it where the substitution cost has
 been replaced by a function which calculates the keyboard distance between characters using the Euclidean distance
-between keys on a QWERTY-keyboard.
+between keys on a QWERTY or AZERTY-keyboard.
 You can also supply your own substitution cost function.
 
 ## Installation
@@ -26,7 +26,7 @@ import nl.gn0s1s.osita.Osita._
 
 osa("abcde", "abcde") // val res0: Double = 0.0
 osa("abcde", "abcd") // val res1: Double = 1.0
-osaWithSubstitutionCost("abc", "agc")(weightedKeyboardSubstitutionCost) // val res2: Double = 1.118033988749895
+osaWithSubstitutionCost("abc", "agc")(qwertySubstitutionCost) // val res2: Double = 1.118033988749895
 
 ```
 

@@ -45,4 +45,9 @@ class OsitaSuite extends ScalaCheckSuite {
   property("osaWithKeyboard counts transpositions correctly") {
     osaWithSubstitutionCost("abc", "acb")(weightedKeyboardSubstitutionCost) == 1
   }
+
+  property("osaWithKeyboard with azerty works") {
+    assertEquals(osaWithSubstitutionCost("mop", "nop")(qwertySubstitutionCost), 1D)
+    assertEquals(osaWithSubstitutionCost("mop", "nop")(azertySubstitutionCost), 2D)
+  }
 }

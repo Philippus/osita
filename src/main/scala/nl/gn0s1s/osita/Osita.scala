@@ -13,11 +13,19 @@ object Osita {
       .map(_.toCharArray)
   }
 
+  private val azertyKeyboardGrid: Array[Array[Char]] = {
+    """azertyuiop
+      |qsdfghjklm
+      |wxcvbn""".stripMargin
+      .split('\n')
+      .map(_.toCharArray)
+  }
+
   private def simpleSubstitutionCost[A](a: A, b: A): Double =
     if (a == b) 0.0D else 1.0D
 
-  private def findPos(c: Char): (Double, Double) = {
-    val t      = qwertyKeyboardGrid.map(row => row.indexOf(c))
+  private def findPos(c: Char, keyboardGrid: Array[Array[Char]]): (Double, Double) = {
+    val t      = keyboardGrid.map(row => row.indexOf(c))
     val column = t.max
     val row    = t.indexOf(column)
     // compensate for the difference between rows on a keyboard
@@ -35,7 +43,21 @@ object Osita {
     def euclideanDistance(p1: (Double, Double), p2: (Double, Double)): Double =
       scala.math.sqrt(scala.math.pow(p1._1 - p2._1, 2) + scala.math.pow(p1._2 - p2._2, 2))
 
-    euclideanDistance(findPos(a), findPos(b))
+    euclideanDistance(findPos(a, qwertyKeyboardGrid), findPos(b, qwertyKeyboardGrid))
+  }
+
+  def qwertySubstitutionCost(a: Char, b: Char): Double = {
+    def euclideanDistance(p1: (Double, Double), p2: (Double, Double)): Double =
+      scala.math.sqrt(scala.math.pow(p1._1 - p2._1, 2) + scala.math.pow(p1._2 - p2._2, 2))
+
+    euclideanDistance(findPos(a, qwertyKeyboardGrid), findPos(b, qwertyKeyboardGrid))
+  }
+
+  def azertySubstitutionCost(a: Char, b: Char): Double = {
+    def euclideanDistance(p1: (Double, Double), p2: (Double, Double)): Double =
+      scala.math.sqrt(scala.math.pow(p1._1 - p2._1, 2) + scala.math.pow(p1._2 - p2._2, 2))
+
+    euclideanDistance(findPos(a, azertyKeyboardGrid), findPos(b, azertyKeyboardGrid))
   }
 
   // https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance#cite_note-Boytsov-7
