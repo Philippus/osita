@@ -77,8 +77,8 @@ object Osita {
     for (j <- 0 to b.size)
       d(0)(j) = j * insertionCost
     for {
-      i    <- 1 to a.size
-      j    <- 1 to b.size
+      i <- 1 to a.size
+      j <- 1 to b.size
     } {
       d(i)(j) = min(
         min(
