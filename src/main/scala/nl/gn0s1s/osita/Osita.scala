@@ -86,7 +86,7 @@ object Osita {
           d(i)(j - 1) + insertionCost
         ), // insertion
         d(i - 1)(j - 1) + substitutionCost(a(i - 1), b(j - 1))
-      )                                                             // substitution
+      )    // substitution
       if (i > 1 && j > 1 && a(i - 1) == b(j - 2) && a(i - 2) == b(j - 1))
         d(i)(j) = min(d(i)(j), d(i - 2)(j - 2) + transpositionCost) // transposition
     }
