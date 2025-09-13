@@ -26,6 +26,6 @@ Compile / packageBin / packageOptions += Package.ManifestAttributes(
 scalacOptions += "-deprecation"
 
 libraryDependencies ++= Seq(
-  "org.scalameta" %% "munit"            % "1.1.1" % Test,
+  "org.scalameta" %% "munit"            % "1.2.0" % Test,
   "org.scalameta" %% "munit-scalacheck" % "1.2.0" % Test
 )
