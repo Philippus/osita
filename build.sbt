@@ -14,7 +14,7 @@ developers := List(
 )
 
 scalaVersion := "3.3.8"
-crossScalaVersions += "2.13.18"
+crossScalaVersions += "3.9.0"
 
 ThisBuild / versionScheme          := Some("semver-spec")
 ThisBuild / versionPolicyIntention := Compatibility.None
